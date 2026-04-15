@@ -7,6 +7,7 @@ import com.example.culturecurious.presentation.uistate.UiState
 import com.example.culturecurious.util.NetworkResult
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -16,7 +17,7 @@ class CountryViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(UiState(isLoading = true))
-    val uiState = _uiState
+    val uiState: StateFlow<UiState> = _uiState
 
     init {
         fetchMovies()
